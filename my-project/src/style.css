@@ -6,8 +6,8 @@
   box-sizing: border-box;
 }
 @layer {
-  header {
-    @apply flex flex-col items-center;
+  .header-upper-content {
+    @apply flex flex-col items-center min-h-[90vh] h-fit h-auto;
   }
 
   /* Navigation Bar */
@@ -29,7 +29,7 @@
 
   .header-main-content {
     @apply flex items-center gap-[2rem] flex-col;
-    @apply relative top-[2.5rem];
+    @apply relative top-50;
   }
 
   header button {
@@ -37,8 +37,9 @@
   }
 
   .slide-lines-con {
-    @apply flex gap-5 w-fit;
-    @apply relative top-[15rem];
+    @apply flex gap-5 w-fit flex-row;
+
+    @apply relative top-65;
   }
   .slide-lines-con div {
     @apply bg-white;

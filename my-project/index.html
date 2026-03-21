@@ -8,64 +8,59 @@
     <title>my-project</title>
   </head>
   <body>
-    <header
-      class="h-screen w-full bg-[url('/src/assets/hero.jpg')] bg-cover bg-center"
-    >
-      <nav>
-        <div class="">
-          <img src="src/assets/logo.png" alt="" class="" />
-          <ul class="text-white">
+    <!-- HEADER -->
+    <header>
+      <div
+        class="h-[90vh] w-full bg-[url('/src/assets/hero.jpg')] bg-center bg-cover"
+      >
+        <!-- Navigation Bar -->
+        <nav class="">
+          <img src="src/assets/logo.png" alt="" class="w-[10.6969rem] h-16" />
+
+          <ul class="text-white nav-text-con">
             <li class=""><a href="" class="">Home</a></li>
             <li class=""><a href="" class="">Shop</a></li>
             <li class=""><a href="" class="">Checkout</a></li>
             <li class=""><a href="" class="">Contact Us</a></li>
           </ul>
+        </nav>
+
+        <div class="header-main-content">
+          <h1
+            class="text-white text-[4.75rem] font-bold leading-[120%] text-center header-title"
+          >
+            Elevate Your Space with <br />
+            Timeless Furniture
+          </h1>
+
+          <p class="text-white text-center m-0 leading-[120%] header-pagraph">
+            Discover furniture that blends style, comfort, and quality. Each
+            piece is curated to bring warmth and elegance to every room in your
+            home. Make
+            <br />
+            your space feel truly yours with timeless designs that last.
+          </p>
+
+          <button
+            class="text-white text-[1rem] w-fit font-bold rounded-[0.5rem] bg-[rgba(16,16,16,1)] p-[0.625rem_1.5rem_0.625rem_2rem]"
+          >
+            Shop the Collection
+            <img
+              src="src/assets/arrow.png"
+              alt=""
+              class="w-[1.0938rem] h-[0.8438rem]"
+            />
+          </button>
         </div>
 
-        <div class="">
-          <ul class="text-white">
-            <li class="">
-              <a href="" class=""
-                ><img src="/src/assets/phone.png" alt="" class=""
-              /></a>
-            </li>
-            <li class="">
-              <a href="" class=""
-                ><img src="/src/assets/user.png" alt="" class=""
-              /></a>
-            </li>
-            <li class="">
-              <a href="" class=""
-                ><img src="/src/assets/cart.png" alt="" class=""
-              /></a>
-            </li>
-          </ul>
+        <div class="slide-lines-con">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-      </nav>
-
-      <h1 class="text-white">
-        Elevate Your Space with <br />
-        Timeless Furniture
-      </h1>
-
-      <p class="text-white">
-        Discover furniture that blends style, comfort, and quality. Each piece
-        is curated to bring warmth and elegance to every room in your home. Make
-        your space feel truly yours with timeless designs that last.
-      </p>
-
-      <button class="text-white">
-        Shop the Collection <img src="/src/assets/arrow.png" alt="" class="" />
-      </button>
-
-      <div>
-        <div></div>
-        <div></div>
-        <div></div>
       </div>
-
-      <div class="bg0"></div>
     </header>
+
     <script type="module" src="src/script.js"></script>
   </body>
 </html>

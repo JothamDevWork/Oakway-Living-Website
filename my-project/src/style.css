@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+* {
+  margin: 0;
+
+  box-sizing: border-box;
+}
+@layer {
+  header {
+    @apply flex flex-col items-center;
+  }
+
+  /* Navigation Bar */
+  nav {
+    @apply flex justify-between;
+    @apply w-[90vw] h-fit;
+    @apply relative top-8;
+  }
+
+  nav img {
+  }
+  .nav-text-con {
+    @apply flex gap-[10px];
+  }
+
+  .nav-text-con li {
+    @apply p-[24px_10px];
+  }
+
+  .header-main-content {
+    @apply flex items-center gap-[2rem] flex-col;
+    @apply relative top-[2.5rem];
+  }
+
+  header button {
+    @apply flex gap-[0.5rem] items-center text-center justify-center whitespace-nowrap;
+  }
+
+  .slide-lines-con {
+    @apply flex gap-5 w-fit;
+    @apply relative top-[15rem];
+  }
+  .slide-lines-con div {
+    @apply bg-white;
+    @apply w-30 h-[0.25rem];
+  }
+}

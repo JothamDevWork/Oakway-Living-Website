@@ -70,3 +70,28 @@ window.addEventListener("resize", () => {
     mobileMenu.classList.remove("open");
   }
 });
+
+// Reviews Carousel
+const reviewsTrack = document.getElementById("reviews-track");
+const reviewsPrev = document.getElementById("reviews-prev");
+const reviewsNext = document.getElementById("reviews-next");
+
+let reviewsIndex = 0;
+const cardWidth = 316; // card width + gap
+
+reviewsNext.addEventListener("click", () => {
+  const maxIndex = reviewsTrack.children.length - 1;
+  if (reviewsIndex < maxIndex) {
+    reviewsIndex++;
+    reviewsTrack.style.transform = `translateX(-${reviewsIndex * cardWidth}px)`;
+    reviewsTrack.style.transition = "transform 0.4s ease";
+  }
+});
+
+reviewsPrev.addEventListener("click", () => {
+  if (reviewsIndex > 0) {
+    reviewsIndex--;
+    reviewsTrack.style.transform = `translateX(-${reviewsIndex * cardWidth}px)`;
+    reviewsTrack.style.transition = "transform 0.4s ease";
+  }
+});

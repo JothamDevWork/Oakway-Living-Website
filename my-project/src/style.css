@@ -24,11 +24,18 @@
     @apply transition-all ease-in-out;
   }
 
+  #hero-bg::after {
+    content: "";
+    @apply absolute inset-0 z-0;
+    background: rgba(0, 0, 0, 0.35);
+  }
+
   nav {
     @apply flex justify-between items-center;
     @apply w-[90vw] h-fit;
     @apply pt-4 sm:pt-5 lg:pt-6;
     @apply pb-2;
+    @apply relative z-10;
   }
 
   nav img {
@@ -87,6 +94,7 @@
   .header-upper-content-wrapper {
     @apply flex flex-col items-center justify-center;
     @apply flex-1 w-full;
+    @apply relative z-10;
   }
 
   .header-upper-content {
@@ -120,7 +128,6 @@
     @apply p-[0.5rem_1rem_0.5rem_1.25rem] md:p-[0.625rem_1.5rem_0.625rem_2rem];
   }
 
-  /* mt removed — gap on wrapper handles spacing now */
   .slide-lines-con {
     @apply flex gap-4 sm:gap-5 w-fit flex-row;
     @apply mt-[1.5rem] sm:mt-[2.5rem] lg:mt-[3rem];
@@ -166,7 +173,7 @@
 }
 
 @layer {
-  /* ── MAIN  SECTION ── */
+  /* ── MAIN SECTION ── */
   .products-section {
     @apply w-full min-h-screen flex items-center justify-center;
     @apply bg-white py-10 px-4 sm:px-8 lg:px-16;
@@ -243,5 +250,206 @@
 
   .price-old {
     @apply text-[rgba(0,0,0,0.35)] text-sm line-through;
+  }
+}
+
+@layer {
+  /* ── BROWSE SECTION ── */
+  .browse-section {
+    @apply w-full min-h-screen flex items-center justify-center;
+    @apply bg-white py-10;
+  }
+
+  .browse-inner {
+    @apply w-[90vw] flex flex-col items-center gap-8;
+  }
+
+  .browse-title {
+    @apply text-black font-bold text-center leading-[120%];
+    @apply text-[1.25rem] sm:text-[1.5rem] lg:text-[2rem];
+  }
+
+  .browse-grid {
+    @apply grid gap-4 sm:gap-5 lg:gap-6 w-full;
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .browse-card {
+    @apply flex flex-col items-center gap-2 cursor-pointer;
+  }
+
+  .browse-img-con {
+    @apply relative w-full overflow-hidden rounded-[0.75rem];
+    @apply h-[180px] sm:h-[200px] lg:h-[220px];
+  }
+
+  .browse-img {
+    @apply w-full h-full object-cover;
+    @apply hover:scale-105 transition-transform duration-300;
+  }
+
+  .browse-badge {
+    @apply absolute inset-0 flex items-center justify-center;
+    @apply text-white font-black tracking-widest;
+    @apply text-[1.25rem] sm:text-[1.5rem] lg:text-[1.75rem];
+    background: rgba(220, 100, 30, 0.82);
+    transform: rotate(-15deg) scaleX(1.2);
+    width: 130%;
+    left: -15%;
+    height: fit-content;
+    top: 50%;
+    translate: 0 -50%;
+    padding: 0.4rem 0;
+  }
+
+  .browse-label {
+    @apply text-black font-semibold text-sm lg:text-base text-center;
+  }
+}
+
+@layer {
+  /* ── ABOUT SECTION ── */
+  .about-section {
+    @apply w-full min-h-screen flex flex-col items-center justify-center;
+    @apply bg-white py-10 gap-16;
+  }
+
+  .about-inner {
+    @apply w-[90vw] flex flex-col lg:flex-row items-center gap-10 lg:gap-16;
+  }
+
+  /* Left image block */
+  .about-img-con {
+    @apply relative flex-shrink-0;
+    @apply w-full lg:w-[45%];
+    overflow: visible;
+  }
+
+  .about-main-img {
+    @apply w-full rounded-[1rem] object-cover;
+    @apply h-[280px] sm:h-[340px] lg:h-[380px];
+  }
+
+  .about-circle-img-con {
+    @apply absolute bottom-[-2rem] left-[-1.5rem];
+    @apply w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] lg:w-[170px] lg:h-[170px];
+    @apply rounded-full overflow-hidden border-4 border-white shadow-lg;
+  }
+
+  .about-circle-img {
+    @apply w-full h-full object-cover;
+  }
+
+  /* Right text block */
+  .about-text-con {
+    @apply flex flex-col gap-4 lg:gap-5;
+    @apply w-full lg:w-[55%];
+    @apply pt-8 lg:pt-0;
+  }
+
+  .about-title {
+    @apply text-black font-bold leading-[130%];
+    @apply text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem];
+  }
+
+  .about-paragraph {
+    @apply text-[rgba(0,0,0,0.65)] leading-[160%];
+    @apply text-sm lg:text-base;
+  }
+
+  .about-btn {
+    @apply w-fit mt-2;
+    @apply bg-black text-white font-bold rounded-[0.5rem];
+    @apply px-6 py-3 text-sm lg:text-base;
+    @apply hover:bg-[rgba(16,16,16,0.85)] transition-colors duration-200;
+  }
+
+  /* ── REVIEWS CAROUSEL ── */
+  .reviews-con {
+    @apply w-[90vw] flex flex-col sm:flex-row items-start gap-8;
+    @apply mt-12;
+  }
+
+  .reviews-summary {
+    @apply flex flex-col gap-2 flex-shrink-0;
+    @apply w-full sm:w-[160px];
+  }
+
+  .reviews-excellent {
+    @apply text-black font-bold text-lg;
+  }
+
+  .reviews-stars {
+    @apply flex gap-1 text-[#1A9B7B] text-xl;
+  }
+
+  .reviews-count {
+    @apply text-[rgba(0,0,0,0.55)] text-sm leading-[140%];
+  }
+
+  .reviews-trustpilot {
+    @apply flex items-center gap-1 mt-1;
+  }
+
+  .reviews-trustpilot span {
+    @apply text-[#1A9B7B] text-lg;
+  }
+
+  .reviews-trustpilot p {
+    @apply text-black font-semibold text-sm;
+  }
+
+  /* Track wrapper with arrows */
+  .reviews-track-wrapper {
+    @apply flex items-center gap-3 flex-1 relative;
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  .reviews-arrow {
+    @apply flex-shrink-0 w-8 h-8 rounded-full border border-[rgba(0,0,0,0.15)];
+    @apply flex items-center justify-center text-sm font-bold;
+    @apply bg-white hover:bg-black hover:text-white transition-colors duration-200 cursor-pointer;
+    @apply relative z-10;
+  }
+
+  .reviews-track {
+    @apply flex gap-4 flex-1;
+    overflow: visible;
+    transition: transform 0.4s ease;
+  }
+
+  .review-card {
+    @apply flex flex-col gap-2 flex-shrink-0;
+    @apply bg-[#F9F9F9] rounded-[0.75rem] p-4;
+    @apply w-[260px] sm:w-[280px] lg:w-[300px];
+  }
+
+  .review-top {
+    @apply flex items-center justify-between;
+  }
+
+  .review-stars {
+    @apply text-[#1A9B7B] text-base font-bold;
+  }
+
+  .review-date {
+    @apply text-[rgba(0,0,0,0.4)] text-xs;
+  }
+
+  .review-verified {
+    @apply text-[rgba(0,0,0,0.5)] text-xs flex items-center gap-1;
+  }
+
+  .review-title {
+    @apply text-black font-bold text-sm;
+  }
+
+  .review-body {
+    @apply text-[rgba(0,0,0,0.6)] text-xs leading-[160%];
+  }
+
+  .review-author {
+    @apply text-black font-semibold text-xs mt-1;
   }
 }

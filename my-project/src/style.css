@@ -1,48 +1,247 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
+@theme {
+  --breakpoint-desktop: 1366px;
+}
 
+* {
   box-sizing: border-box;
 }
+
 @layer {
-  .header-upper-content {
-    @apply flex flex-col items-center min-h-[90vh] h-fit h-auto;
+  /* HERO SECTION */
+  header {
+    @apply relative;
   }
 
-  /* Navigation Bar */
+  #hero-prev {
+    @apply transition-opacity duration-600  ease-in-out relative;
+    @apply transition-all ease-in-out;
+  }
+
+  #hero-bg {
+    @apply transition-opacity duration-600 ease-in-out relative;
+    @apply transition-all ease-in-out;
+  }
+
   nav {
-    @apply flex justify-between;
+    @apply flex justify-between items-center;
     @apply w-[90vw] h-fit;
-    @apply relative top-8;
+    @apply pt-4 sm:pt-5 lg:pt-6;
+    @apply pb-2;
   }
 
   nav img {
+    @apply w-[7rem] h-[3rem] sm:w-[8.5rem] sm:h-[3.5rem] lg:w-[10.6969rem] lg:h-16;
   }
+
   .nav-text-con {
-    @apply flex gap-[10px];
+    @apply hidden md:flex;
+    @apply gap-[6px] sm:gap-[8px] lg:gap-[10px];
   }
 
   .nav-text-con li {
-    @apply p-[24px_10px];
+    @apply p-[10px_6px] sm:p-[12px_8px] lg:p-[14px_10px];
+    @apply text-sm lg:text-base;
   }
 
-  .header-main-content {
-    @apply flex items-center gap-[2rem] flex-col;
-    @apply relative top-50;
+  .nav-hamburger {
+    @apply flex flex-col gap-[5px] cursor-pointer md:hidden;
+  }
+
+  .nav-hamburger span {
+    @apply block w-6 h-[2px] bg-white;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    @apply absolute left-0 w-full z-50;
+    @apply bg-black/80 backdrop-blur-sm;
+    @apply hidden flex-col items-center py-6;
+  }
+
+  .mobile-menu ul {
+    @apply flex flex-col items-center gap-4 w-full;
+  }
+
+  .mobile-menu ul li {
+    @apply w-full text-center;
+  }
+
+  .mobile-menu ul li a {
+    @apply text-white text-lg font-semibold block py-3 w-full;
+    @apply hover:bg-white/10 transition-colors duration-200;
+  }
+
+  .mobile-menu.open {
+    @apply flex md:hidden;
+  }
+
+  .header-content-con {
+    @apply flex flex-col items-center w-full;
+    @apply h-[90vh];
+    @apply justify-start;
+  }
+
+  /* Takes remaining height, spaces children with gap */
+  .header-upper-content-wrapper {
+    @apply flex flex-col items-center justify-center;
+    @apply flex-1 w-full;
+  }
+
+  .header-upper-content {
+    @apply flex items-center flex-col;
+    @apply gap-[1rem] sm:gap-[1.25rem] md:gap-[1.5rem] lg:gap-[2rem];
+    @apply px-4 sm:px-8 lg:px-0;
+  }
+
+  .header-title {
+    @apply text-white font-bold text-center leading-[120%];
+    @apply text-[1.75rem] sm:text-[2.5rem] md:text-[3.25rem] lg:text-[4rem] xl:text-[4.75rem];
+  }
+
+  @media (max-width: 767px) {
+    .header-title br,
+    .header-pagraph br {
+      display: none;
+    }
+  }
+
+  .header-pagraph {
+    @apply text-white text-center leading-[120%];
+    @apply text-sm md:text-base;
+    @apply max-w-[90vw] md:max-w-[70vw] lg:max-w-[80vw] xl:max-w-none;
   }
 
   header button {
-    @apply flex gap-[0.5rem] items-center text-center justify-center whitespace-nowrap;
+    @apply flex gap-[0.5rem] items-center justify-center whitespace-nowrap;
+    @apply text-white font-bold rounded-[0.5rem] bg-[rgba(16,16,16,1)];
+    @apply text-sm md:text-base;
+    @apply p-[0.5rem_1rem_0.5rem_1.25rem] md:p-[0.625rem_1.5rem_0.625rem_2rem];
   }
 
+  /* mt removed — gap on wrapper handles spacing now */
   .slide-lines-con {
-    @apply flex gap-5 w-fit flex-row;
-
-    @apply relative top-65;
+    @apply flex gap-4 sm:gap-5 w-fit flex-row;
+    @apply mt-[1.5rem] sm:mt-[2.5rem] lg:mt-[3rem];
   }
+
   .slide-lines-con div {
+    @apply bg-[rgba(255,255,255,0.32)];
+    @apply w-16 sm:w-20 md:w-24 lg:w-28 xl:w-30;
+    @apply h-[0.25rem];
+    @apply transition-colors duration-500;
+  }
+
+  .slide-lines-con div.active {
     @apply bg-white;
-    @apply w-30 h-[0.25rem];
+  }
+
+  /* Marquee */
+  .marquee-wrapper {
+    @apply w-full bg-black overflow-hidden flex items-center;
+    @apply h-[10vh];
+  }
+
+  .header-buttom-content {
+    @apply flex gap-2 items-center w-max;
+    @apply text-[1rem] sm:text-[1.4rem] lg:text-[1.9375rem];
+    @apply font-bold text-white leading-[120%];
+    animation: marquee 12s linear infinite;
+  }
+
+  .header-buttom-content li {
+    @apply list-disc whitespace-nowrap;
+    @apply p-[0_2rem] sm:p-[0_3.5rem] lg:p-[0_5.5rem];
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer {
+  /* ── MAIN  SECTION ── */
+  .products-section {
+    @apply w-full min-h-screen flex items-center justify-center;
+    @apply bg-white py-10 px-4 sm:px-8 lg:px-16;
+  }
+
+  .products-inner {
+    @apply w-[90vw] flex flex-col gap-8;
+  }
+
+  .products-header {
+    @apply flex items-center justify-between;
+  }
+
+  .products-title {
+    @apply text-black font-bold leading-[120%];
+    @apply text-[1.25rem] sm:text-[1.5rem] lg:text-[2rem];
+  }
+
+  .see-all-btn {
+    @apply flex items-center gap-2 font-semibold;
+    @apply text-sm lg:text-base;
+    @apply border border-[rgba(0,0,0,0.15)] rounded-full;
+    @apply px-4 py-2 bg-white text-black;
+    @apply hover:bg-black hover:text-white transition-colors duration-200;
+  }
+
+  .products-grid {
+    @apply grid gap-4 sm:gap-5 lg:gap-6;
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .product-card {
+    @apply flex flex-col gap-3 rounded-[0.75rem] overflow-hidden;
+    @apply bg-white border border-[rgba(0,0,0,0.08)];
+    @apply hover:shadow-md transition-shadow duration-200;
+  }
+
+  .product-img-con {
+    @apply relative bg-[#F2F2F2] rounded-[0.75rem];
+    @apply flex items-center justify-center;
+    @apply h-[220px] sm:h-[240px] lg:h-[280px];
+    @apply overflow-hidden;
+  }
+
+  .product-badge {
+    @apply absolute top-3 left-3 z-10;
+    @apply bg-[#1A9B7B] text-white text-xs font-bold;
+    @apply px-3 py-1 rounded-full;
+  }
+
+  .product-img {
+    @apply object-contain w-[75%] h-[75%];
+  }
+
+  .product-info {
+    @apply flex flex-col gap-1 px-4 pb-4;
+  }
+
+  .product-name {
+    @apply text-black font-semibold text-sm lg:text-base leading-[140%];
+  }
+
+  .product-tag {
+    @apply text-[rgba(0,0,0,0.45)] text-xs lg:text-sm;
+  }
+
+  .product-price {
+    @apply flex items-center gap-2 mt-1;
+  }
+
+  .price-new {
+    @apply text-[#1A9B7B] font-bold text-sm lg:text-base;
+  }
+
+  .price-old {
+    @apply text-[rgba(0,0,0,0.35)] text-sm line-through;
   }
 }

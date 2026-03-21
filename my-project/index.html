@@ -11,55 +11,247 @@
     <!-- HEADER -->
     <header>
       <div
-        class="w-full h-full bg-[url('/src/assets/hero.jpg')] bg-center bg-cover header-upper-content"
+        id="hero-prev"
+        class="w-full h-full bg-center bg-cover absolute top-0 left-0"
+      ></div>
+      <div
+        id="hero-bg"
+        class="w-full h-full bg-[url('/src/assets/hero.jpg')] bg-center bg-cover header-content-con bg-no-repeat"
       >
         <!-- Navigation Bar -->
-        <nav class="">
+        <nav>
           <img src="src/assets/logo.png" alt="" class="w-[10.6969rem] h-16" />
 
           <ul class="text-white nav-text-con">
-            <li class=""><a href="" class="">Home</a></li>
-            <li class=""><a href="" class="">Shop</a></li>
-            <li class=""><a href="" class="">Checkout</a></li>
-            <li class=""><a href="" class="">Contact Us</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li><a href="">Checkout</a></li>
+            <li><a href="">Contact Us</a></li>
           </ul>
+
+          <div class="nav-hamburger md:hidden" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </nav>
 
-        <div class="header-main-content">
-          <h1
-            class="text-white text-[4.75rem] font-bold leading-[120%] text-center header-title"
-          >
-            Elevate Your Space with <br />
-            Timeless Furniture
-          </h1>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li><a href="">Checkout</a></li>
+            <li><a href="">Contact Us</a></li>
+          </ul>
+        </div>
 
-          <p class="text-white text-center m-0 leading-[120%] header-pagraph">
-            Discover furniture that blends style, comfort, and quality. Each
-            piece is curated to bring warmth and elegance to every room in your
-            home. Make
-            <br />
-            your space feel truly yours with timeless designs that last.
-          </p>
+        <!-- Wrapper that centers content vertically in remaining space -->
+        <div class="header-upper-content-wrapper">
+          <div class="header-upper-content">
+            <h1
+              class="text-white text-[4.75rem] font-bold leading-[120%] text-center header-title"
+            >
+              Elevate Your Space with <br />
+              Timeless Furniture
+            </h1>
 
-          <button
-            class="text-white text-[1rem] w-fit font-bold rounded-[0.5rem] bg-[rgba(16,16,16,1)] p-[0.625rem_1.5rem_0.625rem_2rem]"
-          >
-            Shop the Collection
-            <img
-              src="src/assets/arrow.png"
-              alt=""
-              class="w-[1.0938rem] h-[0.8438rem]"
-            />
-          </button>
+            <p class="text-white text-center m-0 leading-[120%] header-pagraph">
+              Discover furniture that blends style, comfort, and quality. Each
+              piece is curated to bring warmth and elegance to every room in
+              your home. Make
+              <br />
+              your space feel truly yours with timeless designs that last.
+            </p>
+
+            <button
+              class="text-white text-[1rem] w-fit font-bold rounded-[0.5rem] bg-[rgba(16,16,16,1)] p-[0.625rem_1.5rem_0.625rem_2rem]"
+            >
+              Shop the Collection
+              <img
+                src="src/assets/arrow.png"
+                alt=""
+                class="w-[1.0938rem] h-[0.8438rem]"
+              />
+            </button>
+          </div>
 
           <div class="slide-lines-con">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div id="line-1"></div>
+            <div id="line-2"></div>
+            <div id="line-3"></div>
           </div>
         </div>
       </div>
+
+      <div class="marquee-wrapper">
+        <ul
+          class="text-white h-[10vh] bg-black header-buttom-content leading-[120%] font-bold text-[1.9375rem]"
+        >
+          <li>Enjoy Up to 30% Off Selected Furniture</li>
+          <li>Limited Time Only</li>
+          <li>Shop Now and Redesign Your Space for Less</li>
+          <!-- Duplicate for seamless loop -->
+          <li>Enjoy Up to 30% Off Selected Furniture</li>
+          <li>Limited Time Only</li>
+          <li>Shop Now and Redesign Your Space for Less</li>
+        </ul>
+      </div>
     </header>
+
+    <main>
+      <section class="products-section">
+        <div class="products-inner">
+          <!-- Section Header -->
+          <div class="products-header">
+            <h2 class="products-title">Furniture That Feels Like Home</h2>
+            <button class="see-all-btn">
+              See All
+              <img
+                src="src/assets/arrow.png"
+                alt=""
+                class="w-[1.0938rem] h-[0.8438rem]"
+              />
+            </button>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="products-grid">
+            <!-- Card 1 -->
+            <div class="product-card">
+              <div class="product-img-con">
+                <span class="product-badge">-78%</span>
+                <img
+                  src="src/assets/product1.png"
+                  alt="Big Green Egg"
+                  class="product-img"
+                />
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  Big Green Egg (Medium) Actie Bundle
+                </h3>
+                <p class="product-tag">Closing Sale</p>
+                <div class="product-price">
+                  <span class="price-new">£ 185.00</span>
+                  <span class="price-old">£ 850.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="product-card">
+              <div class="product-img-con">
+                <span class="product-badge">-79%</span>
+                <img
+                  src="src/assets/product2.png"
+                  alt="Bellagio Cadora"
+                  class="product-img"
+                />
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  Bellagio Cadora Corner Lounge Set 4-Piece Right
+                </h3>
+                <p class="product-tag">Closing Sale</p>
+                <div class="product-price">
+                  <span class="price-new">£ 185.00</span>
+                  <span class="price-old">£ 899.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="product-card">
+              <div class="product-img-con">
+                <span class="product-badge">-76%</span>
+                <img
+                  src="src/assets/product3.png"
+                  alt="Apple Bee Milou"
+                  class="product-img"
+                />
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  Apple Bee Milou 240cm Dining Garden Set 7...
+                </h3>
+                <p class="product-tag">Closing Sale</p>
+                <div class="product-price">
+                  <span class="price-new">£ 184.00</span>
+                  <span class="price-old">£ 773.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="product-card">
+              <div class="product-img-con">
+                <span class="product-badge">-77%</span>
+                <img
+                  src="src/assets/product4.png"
+                  alt="Intenso Mazzano"
+                  class="product-img"
+                />
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  Intenso Mazzano/ROUGH-X 320cm Lounge...
+                </h3>
+                <p class="product-tag">Closing Sale</p>
+                <div class="product-price">
+                  <span class="price-new">£ 215.00</span>
+                  <span class="price-old">£ 950.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="product-card">
+              <div class="product-img-con">
+                <span class="product-badge">-79%</span>
+                <img
+                  src="src/assets/product5.png"
+                  alt="Lounge Set"
+                  class="product-img"
+                />
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  Lounge Set with Table and Ottoman 5-seater...
+                </h3>
+                <p class="product-tag">Closing Sale</p>
+                <div class="product-price">
+                  <span class="price-new">£ 135.00</span>
+                  <span class="price-old">£ 650.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="product-card">
+              <div class="product-img-con">
+                <span class="product-badge">-76%</span>
+                <img
+                  src="src/assets/product6.png"
+                  alt="Bellagio Mineo"
+                  class="product-img"
+                />
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  Bellagio Mineo/Induno Danish Oval 220cm 7...
+                </h3>
+                <p class="product-tag">Closing Sale</p>
+                <div class="product-price">
+                  <span class="price-new">£ 184.00</span>
+                  <span class="price-old">£ 773.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <script type="module" src="src/script.js"></script>
   </body>

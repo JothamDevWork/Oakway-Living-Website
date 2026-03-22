@@ -77,21 +77,35 @@ const reviewsPrev = document.getElementById("reviews-prev");
 const reviewsNext = document.getElementById("reviews-next");
 
 let reviewsIndex = 0;
-const cardWidth = 316; // card width + gap
 
-reviewsNext.addEventListener("click", () => {
-  const maxIndex = reviewsTrack.children.length - 1;
-  if (reviewsIndex < maxIndex) {
-    reviewsIndex++;
-    reviewsTrack.style.transform = `translateX(-${reviewsIndex * cardWidth}px)`;
-    reviewsTrack.style.transition = "transform 0.4s ease";
-  }
-});
+function getCardWidth() {
+  const card = reviewsTrack.querySelector(".review-card");
+  const gap = 16;
+  return card.getBoundingClientRect().width + gap;
+}
+
+function getMaxIndex() {
+  const clip = reviewsTrack.parentElement;
+  const cardW = getCardWidth();
+  const visible = Math.floor(clip.offsetWidth / cardW);
+  return Math.max(0, reviewsTrack.children.length - visible);
+}
+
+function updateCarousel() {
+  const max = getMaxIndex();
+  reviewsIndex = Math.max(0, Math.min(reviewsIndex, max));
+  reviewsTrack.style.transform = `translateX(-${reviewsIndex * getCardWidth()}px)`;
+  reviewsPrev.style.opacity = reviewsIndex === 0 ? "0.3" : "1";
+  reviewsNext.style.opacity = reviewsIndex >= max ? "0.3" : "1";
+}
 
 reviewsPrev.addEventListener("click", () => {
-  if (reviewsIndex > 0) {
-    reviewsIndex--;
-    reviewsTrack.style.transform = `translateX(-${reviewsIndex * cardWidth}px)`;
-    reviewsTrack.style.transition = "transform 0.4s ease";
-  }
+  reviewsIndex--;
+  updateCarousel();
 });
+reviewsNext.addEventListener("click", () => {
+  reviewsIndex++;
+  updateCarousel();
+});
+window.addEventListener("resize", updateCarousel);
+updateCarousel();
